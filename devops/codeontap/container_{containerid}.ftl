@@ -1,6 +1,4 @@
 [#case "{containerid}"]
-[#case "{containerid}task"]
-[#case "{containerid}celery"]
     [#switch containerListMode]
         [#case "definition"]
             [#switch containerListTarget]
@@ -18,24 +16,13 @@
             [@standardEnvironmentVariables
                 containerListTarget containerListMode /]
                 
-            [#switch containerId]
-                [#case "{containerid}"]
-                    [@environmentVariable
-                        "APP_RUN_MODE" "WEB"
-                        containerListTarget containerListMode /]
+            [#switch containerRunMode]
+                [#case "WEB"]
                     [@environmentVariable
                         "APP_WORKER_COUNT" "3"
                         containerListTarget containerListMode /]
                     [#break]
-                [#case "{containerid}task"]
-                    [@environmentVariable
-                        "APP_RUN_MODE" "TASK"
-                        containerListTarget containerListMode /]
-                    [#break]
-                [#case "{containerid}celery"]
-                    [@environmentVariable
-                        "APP_RUN_MODE" "WORKER"
-                        containerListTarget containerListMode /]
+                [#case "WORKER"]
                     [@environmentVariable
                         "APP_WORKER_COUNT" "4"
                         containerListTarget containerListMode /]

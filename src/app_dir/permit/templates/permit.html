@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block breadcrumbs %}
+{% endblock breadcrumbs %}
+
+{% block main-content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button>{% trans 'Save' %}</button>
+    <button type="submit" name="previous" value="1">{% trans 'Previous' %}</button>
+    <button type="submit" name="next" value="1">{% trans 'Next' %}</button>
+</form>
+{% endblock main-content %}

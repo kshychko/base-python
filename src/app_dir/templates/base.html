@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>app_dir</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="google-site-verification" content=""/>
+    <meta name="keywords" content=""/>
+    {% block meta_property %}{% endblock %}
+    {% block meta_description %}{% endblock %}
+
+    <!-- Styles libs -->
+    <link href="{% static 'libs/bootstrap-3.3.7/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'app_dir.css' %}" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link rel="canonical" href=""/>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Permissions Management</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!-- <li {# class="active" #}><a href="/">Home</a></li> -->
+            <!-- <li><a href="#about">About</a></li> -->
+            <!-- <li><a href="#contact">Contact</a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+        <!-- header goes here -->
+        {% block breadcrumbs %}
+        {% endblock breadcrumbs %}
+
+        <div id="main-content">
+            {% block main-content %}{% endblock main-content %}
+        </div>
+    </div>
+
+    <!-- footer goes here -->
+    {% block modals %}
+    {% endblock modals %}
+    <!-- JavaScript libs -->
+    <script src="{% static 'libs/jquery/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'libs/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/app_dir-script.js' %}"></script>
+</body>
+</html>

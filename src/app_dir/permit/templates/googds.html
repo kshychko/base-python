@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+{% endblock breadcrumbs %}
+
+{% block main-content %}
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#optionA">{% trans 'Option A' %}</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#optionB">{% trans 'Option B' %}</button>
+
+    <a href="{% url 'transport' %}">{% trans 'Previous' %}</a>
+    <a href="{% url 'transport' %}">{% trans 'Next' %}</a>
+{% endblock main-content %}
+
+{% block modals %}
+    {% include 'modal-option-a.html' %}
+    {% include 'modal-option-b.html' %}
+{% endblock modals %}

@@ -54,7 +54,7 @@
             [/#if]
             [#if appSettingsObject.Debug??]
                 [@environmentVariable
-                    "DJANGO_DEBUG" appSettingsObject.Debug
+                    "DJANGO_DEBUG" appSettingsObject.Debug?c
                     containerListTarget containerListMode /]
             [/#if]
 

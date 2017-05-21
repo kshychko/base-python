@@ -13,7 +13,7 @@ Docker files are designed to be run from the root of the repo. Thus to test loca
 
 ## Basics
 
-The repo is designed so that it can be immediately be forked to create a python based component that can be run locally and within codeontap environment.
+The repo is designed so that it can be immediately forked to create a python based component that can be run locally or within a codeontap environment.
 
 Contributors to the repo are expected to perform their feature submissions in the form of a pull request.
 
@@ -65,19 +65,18 @@ Each mode has a corresponding script in the ./src directory of the form
 container-{lower-case-mode}.sh
 ```
 
-Adding or modifying the provided modes should be done in consultation with the devops team. Sugestions welcome as PRs.
+Adding or modifying the provided modes should be done in consultation with the devops team. Suggestions welcome as PRs.
 
 ## Environment variable contract
 
-The application is expected to receive all its configuration via environment variables. This permits is to run equally well locally, in a docker container or as AWS Lambda code.
+The application is expected to receive all its configuration via environment variables. This permits it to run equally well locally, in a docker container or as AWS Lambda code.
 
-The presence of sets of variables is used to detect if the corresponding function is required. 
-The variable sets are described below, and be cut and pasted into the .env file if running locally.
-You can cut and paste the sections below to create this file.
+Variables are divided below into sets, with each set representing particular functionality, the support for which is already present in this repo. If the functionality is optional, the first variable in the set 
+is used to detect if the functionality is required.
 
-Variables containing sensitive material can be protected using an encryption service such as AWS KMS. If encrypted, the ciphertext will be base64 encoded.
-All environment variables should be tested to see if they are base64 encoded, and can be decrypted via AWS KMS. If either step fails, then the value
-should be used as is. This logic permits local testing with plaintext values.
+Variables containing sensitive material can be protected using the AWS KMS encryption service. If encrypted, the ciphertext will be base64 encoded.
+All environment variables are thus tested to see if they are base64 encoded, and can be decrypted via AWS KMS. If either step fails, then the value
+is used as is. This logic permits local testing with plaintext values and storage of environment values in config repos without risk of exposure.
 
 If there is a discrepancy between a project/product and this repo, align to what is documented below. If it seems wrong, prepare a PR.
 
@@ -109,8 +108,8 @@ If debug is true, then a value must be provided for DJANGO_SECRET_KEY.
 ### SQL Database
 
 ```
-DATABASE_PORT=
 DATABASE_HOST=
+DATABASE_PORT=
 DATABASE_NAME=
 DATABASE_USERNAME=
 DATABASE_PASSWORD=

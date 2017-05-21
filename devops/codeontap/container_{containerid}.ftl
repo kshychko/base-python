@@ -133,6 +133,14 @@
                     containerListTarget containerListMode /]
             [/#if]            
 
+            [#assign sentryDetails =
+                        credentialsObject["sentry"]!""]
+            [#if sentryDetails??]
+                [@environmentVariable
+                    "SENTRY_DSN" sentryDetails.API.SecretKey
+                    containerListTarget containerListMode /]
+            [/#if]
+
             [#break]
 
         [#case "policyCount"]

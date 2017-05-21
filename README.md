@@ -103,7 +103,7 @@ DJANGO_DEBUG=True
 DJANGO_SECRET_KEY=
 ```
 
-If debug is true, then a value must be provided for DJANGO_SECRET_KEY.
+If debug is false, then a value must be provided for DJANGO_SECRET_KEY.
 
 ### SQL Database
 

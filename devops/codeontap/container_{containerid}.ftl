@@ -51,12 +51,10 @@
                 [@environmentVariable
                     "DJANGO_SECRET_KEY" secretKeyDetails.API.SecretKey
                     containerListTarget containerListMode /]
+            [/#if]
+            [#if appSettingsObject.Debug??]
                 [@environmentVariable
-                    "DJANGO_DEBUG" "False"
-                    containerListTarget containerListMode /]
-            [#else]
-                [@environmentVariable
-                    "DJANGO_DEBUG" "True"
+                    "DJANGO_DEBUG" appSettingsObject.Debug
                     containerListTarget containerListMode /]
             [/#if]
 

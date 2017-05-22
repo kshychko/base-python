@@ -147,6 +147,7 @@
         [#case "policy"]
             [@policyHeader containerListPolicyName containerListPolicyId  containerListRole/]
             [@cmkDecryptStatement formatSegmentCMKArnId() /]
+            [@s3AllStatement dataBucket getAppDataFilePrefix() /]
             [@policyFooter /]
             [#break]
 

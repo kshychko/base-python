@@ -157,6 +157,22 @@ COUCHDB_PASSWORD=
 SENTRY_DSN=
 ```
 
+### AWS service access
+
+```
+AWS_REGION=
+```
+
+See later sections for variables for specific services. Note that the application will run under a role in codeontap environments so no variables are needed to provide credentials. The standard AWS credentials can be set locally if doing testing against a development account. 
+
+### Application specific data storage in S3
+
+```
+APPDATA_BUCKET=
+APPDATA_PREFIX=
+```
+
+Structure under prefix is up to the pplication. Note that in higher environments, multiple instances of any application will be accessing the same bucket so consider this in your code design.
 
 ### Local development (TODO: review/update)
 
